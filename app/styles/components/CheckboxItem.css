@@ -1,0 +1,9 @@
+.checkboxItem {
+  padding: 10px 20px;
+  width: 18%;
+}
+
+.checkboxItem label {
+  display: block;
+  font-size: 1.2rem;
+}

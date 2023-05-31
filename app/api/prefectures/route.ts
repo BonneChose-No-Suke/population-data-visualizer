@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 export const GET = async () => {
   const URL = 'https://opendata.resas-portal.go.jp/api/v1/prefectures';
-  const API_KEY = process.env.RESAS_API_KEY!;
+  const API_KEY = process.env.RESAS_API_KEY || '';
 
   const response = await fetch(URL, {
     method: 'GET',

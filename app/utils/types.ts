@@ -1,4 +1,4 @@
-export type prefecture = {
+export type Prefecture = {
   prefCode: number;
   prefName: string;
 };

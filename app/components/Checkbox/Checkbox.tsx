@@ -1,8 +1,8 @@
-import { prefecture } from '@/app/utils/types';
+import { Prefecture } from '@/app/utils/types';
 import { CheckboxArea } from './CheckboxArea';
 
 export const Checkbox = async () => {
-  const prefectures: prefecture[] = await getPrefectures();
+  const prefectures: Prefecture[] = await getPrefectures();
   return <CheckboxArea prefectures={prefectures} />;
 };
 

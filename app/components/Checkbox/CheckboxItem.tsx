@@ -1,17 +1,21 @@
 'use client';
 
-import { prefecture } from '@/app/utils/types';
-import styles from '../../styles/components/CheckboxItem.module.css';
+import { Prefecture } from '@/app/utils/types';
+import '../../styles/components/CheckboxItem.css';
 
 type Props = {
-  prefecture: prefecture;
+  prefecture: Prefecture;
+  onSelectPrefecture: (prefCode: number) => void;
 };
 
 export const CheckboxItem = (props: Props) => {
   return (
-    <div className={styles.checkboxItem}>
+    <div
+      className='checkboxItem'
+      onClick={() => props.onSelectPrefecture(props.prefecture.prefCode)}>
+      {/* checkBoxはiconに差し替え */}
       <input type='checkbox' />
-      <label>{props.prefecture.prefName}</label>
+      {props.prefecture.prefName}
     </div>
   );
 };
