@@ -1,0 +1,37 @@
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.Batch {
+  padding: 10px 12.5px;
+  align-items: center;
+  gap: 12.5px;
+  font-size: 10px;
+  display: inline-flex;
+  flex-shrink: 0;
+  border-radius: 9999px;
+}
+
+.Batch_text {
+  margin: 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+.Batch_button {
+  position: relative;
+  border: 1px solid #fff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.Batch_icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
