@@ -13,8 +13,6 @@ type Props = {
 export const SelectPulldown = (props: Props) => {
   const PrefCodeList = useContext(PrefCodeContext);
 
-  console.log(PrefCodeList.prefCodeList);
-
   return (
     <label className='SelectPulldown'>
       <select
