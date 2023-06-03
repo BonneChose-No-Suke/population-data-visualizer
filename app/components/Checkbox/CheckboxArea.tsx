@@ -1,10 +1,10 @@
 'use client';
 
-import { Prefecture } from '@/app/utils/types';
-import { CheckboxItem } from './CheckboxItem';
-import '../../styles/components/CheckboxArea.css';
 import { useContext } from 'react';
 import { PrefCodeContext } from '@/app/utils/context';
+import { Prefecture } from '@/app/utils/types';
+import { CheckboxItem } from './CheckboxItem';
+import '../../styles/components/Checkbox/CheckboxArea.css';
 
 type Props = {
   prefectures: Prefecture[];
@@ -24,19 +24,16 @@ export const CheckboxArea = (props: Props) => {
     });
   };
 
-  console.log(PrefCodeList.prefCodeList);
-
   return (
-    <>
-      <div className='checkboxArea'>
-        {prefectures.map((prefecture, i) => (
-          <CheckboxItem
-            key={i}
-            prefecture={prefecture}
-            onSelectPrefecture={prefectureSelected}
-          />
-        ))}
-      </div>
-    </>
+    <div className='checkboxArea'>
+      {prefectures.map((prefecture, i) => (
+        <CheckboxItem
+          key={i}
+          prefecture={prefecture}
+          selected={PrefCodeList.prefCodeList.includes(prefecture.prefCode)}
+          onSelectPrefecture={prefectureSelected}
+        />
+      ))}
+    </div>
   );
 };

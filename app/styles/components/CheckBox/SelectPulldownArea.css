@@ -1,0 +1,15 @@
+.BatchArea {
+  width: 90%;
+  display: flex;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  gap: 7.5px;
+  margin: 20px auto 0;
+  padding: 0 0 20px;
+}
+
+@media screen and (min-width: 964px) {
+  .SelectPulldownArea {
+    display: none;
+  }
+}
