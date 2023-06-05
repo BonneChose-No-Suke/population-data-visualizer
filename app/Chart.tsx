@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { PrefCodeContext } from './utils/context';
+import { ChartArea } from './components/ChartArea/ChartArea';
 
 export const Chart = ({ children }: { children: React.ReactNode }) => {
   // contextを使ってprefCodeのリストを管理する
@@ -11,7 +12,7 @@ export const Chart = ({ children }: { children: React.ReactNode }) => {
     <>
       <PrefCodeContext.Provider value={usePrefCodeList()}>
         {children}
-        <div>チャートエリア</div>
+        <ChartArea />
       </PrefCodeContext.Provider>
     </>
   );

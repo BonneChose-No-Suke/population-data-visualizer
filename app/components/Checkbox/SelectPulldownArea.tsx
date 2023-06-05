@@ -31,27 +31,21 @@ export const SelectPulldownArea = (props: Props) => {
 
   const removePrefecture = (prefCode: number) => {
     PrefCodeList.setPrefCodeList((prevList) => {
-      return prevList.includes(prefCode)
-        ? prevList.filter((code) => code !== prefCode)
-        : prevList;
+      return prevList.includes(prefCode) ? prevList.filter((code) => code !== prefCode) : prevList;
     });
   };
 
   return (
-    <div className='SelectPulldownArea'>
-      <SelectPulldown
-        prefectures={props.prefectures}
-        onSelectPrefecture={addPrefecture}
-      />
-      <div className='BatchArea'>
+    <div className="SelectPulldownArea">
+      <SelectPulldown prefectures={props.prefectures} onSelectPrefecture={addPrefecture} />
+      <div className="BatchArea">
         {PrefCodeList.prefCodeList.map((prefCode, i) => (
           <Batch
             key={i}
             prefCode={prefCode}
             prefName={
-              props.prefectures.filter(
-                (prefecture) => prefecture.prefCode === prefCode
-              )[0]!.prefName
+              props.prefectures.filter((prefecture) => prefecture.prefCode === prefCode)[0]!
+                .prefName
             }
             colorCode={getColorCode(prefCode)}
             onRemovePrefecture={removePrefecture}

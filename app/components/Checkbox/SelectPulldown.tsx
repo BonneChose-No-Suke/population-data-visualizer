@@ -14,17 +14,19 @@ export const SelectPulldown = (props: Props) => {
   const PrefCodeList = useContext(PrefCodeContext);
 
   return (
-    <label className='SelectPulldown'>
+    <label className="SelectPulldown">
       <select
         onChange={(e) => {
           props.onSelectPrefecture(Number(e.target.value));
-        }}>
+        }}
+      >
         <option hidden>都道府県を選択してください</option>
         {props.prefectures.map((prefecture, i) => (
           <option
             key={i}
             value={prefecture.prefCode}
-            disabled={PrefCodeList.prefCodeList.includes(prefecture.prefCode)}>
+            disabled={PrefCodeList.prefCodeList.includes(prefecture.prefCode)}
+          >
             {prefecture.prefName}
           </option>
         ))}

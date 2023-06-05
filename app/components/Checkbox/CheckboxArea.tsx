@@ -25,7 +25,7 @@ export const CheckboxArea = (props: Props) => {
   };
 
   return (
-    <div className='checkboxArea'>
+    <div className="checkboxArea">
       {prefectures.map((prefecture, i) => (
         <CheckboxItem
           key={i}

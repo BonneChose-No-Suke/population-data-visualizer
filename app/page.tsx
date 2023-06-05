@@ -2,13 +2,13 @@ import { Chart } from './Chart';
 import { Checkbox } from './components/Checkbox/Checkbox';
 import './styles/page.css';
 
-export const Home = () => {
+const Home = () => {
   return (
-    <main className='main'>
-      <h1 className='pageTitle' style={{ textAlign: 'center' }}>
+    <main className="main">
+      <h1 className="pageTitle" style={{ textAlign: 'center' }}>
         都道府県別人口構成グラフ
       </h1>
-      <p className='pageDescription'></p>
+      <p className="pageDescription"></p>
       <Chart>
         {/* @ts-expect-error Async Server Component */}
         <Checkbox />
@@ -16,3 +16,5 @@ export const Home = () => {
     </main>
   );
 };
+
+export default Home;
