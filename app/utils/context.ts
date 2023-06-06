@@ -6,4 +6,4 @@ export type PrefContextType = {
   setPrefList: Dispatch<SetStateAction<Prefecture[]>>;
 };
 
-export const PrefCodeContext = createContext<PrefContextType>({} as PrefContextType);
+export const PrefectureContext = createContext<PrefContextType>({} as PrefContextType);

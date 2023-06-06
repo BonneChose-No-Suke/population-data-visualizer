@@ -2,7 +2,7 @@
 
 import { Prefecture } from '@/app/utils/types';
 import { SelectPulldown } from './SelectPulldown';
-import { PrefCodeContext } from '@/app/utils/context';
+import { PrefectureContext } from '@/app/utils/context';
 import { useContext } from 'react';
 import { Batch } from '../common/Batch';
 import '../../styles/components/Checkbox/SelectPulldownArea.css';
@@ -13,7 +13,7 @@ type Props = {
 };
 
 export const SelectPulldownArea = (props: Props) => {
-  const PrefCodeList = useContext(PrefCodeContext);
+  const PrefCodeList = useContext(PrefectureContext);
   const getColorCode = (prefCode: number) => {
     const area = getAreaCode(prefCode) ?? AreaCode.Hokkaido;
     return getAreaColor(area);

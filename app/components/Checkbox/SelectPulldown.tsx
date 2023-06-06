@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext } from 'react';
-import { PrefCodeContext } from '@/app/utils/context';
+import { PrefectureContext } from '@/app/utils/context';
 import { Prefecture } from '@/app/utils/types';
 import '../../styles/components/Checkbox/SelectPulldown.css';
 
@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const SelectPulldown = (props: Props) => {
-  const PrefCodeList = useContext(PrefCodeContext);
+  const PrefCodeList = useContext(PrefectureContext);
 
   return (
     <label className="SelectPulldown">

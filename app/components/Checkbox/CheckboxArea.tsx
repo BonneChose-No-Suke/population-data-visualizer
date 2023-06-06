@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext } from 'react';
-import { PrefCodeContext } from '@/app/utils/context';
+import { PrefectureContext } from '@/app/utils/context';
 import { Prefecture } from '@/app/utils/types';
 import { CheckboxItem } from './CheckboxItem';
 import '../../styles/components/Checkbox/CheckboxArea.css';
@@ -12,7 +12,7 @@ type Props = {
 
 export const CheckboxArea = (props: Props) => {
   const { prefectures } = props;
-  const PrefList = useContext(PrefCodeContext);
+  const PrefList = useContext(PrefectureContext);
 
   const prefectureSelected = (prefecture: Prefecture) => {
     PrefList.setPrefList((prev) => {

@@ -1,18 +1,18 @@
 'use client';
 
 import { usePopulationData } from '@/app/hooks/usePopulationData';
-import { PrefCodeContext } from '@/app/utils/context';
+import { PrefectureContext } from '@/app/utils/context';
 import { useContext, useEffect, useState } from 'react';
 
 export const ChartArea = () => {
-  const PrefCodeList = useContext(PrefCodeContext);
-  const [currentPrefList, setCurrentPrefList] = useState(PrefCodeList.prefList);
-  const { updatePrefs, populationData } = usePopulationData(PrefCodeList.prefList);
+  const PrefList = useContext(PrefectureContext);
+  const [currentPrefList, setCurrentPrefList] = useState(PrefList.prefList);
+  const { updatePrefs, populationData } = usePopulationData(PrefList.prefList);
 
   useEffect(() => {
     updatePrefs(currentPrefList);
-    setCurrentPrefList(PrefCodeList.prefList);
-  }, [PrefCodeList.prefList]);
+    setCurrentPrefList(PrefList.prefList);
+  }, [PrefList.prefList]);
 
   return (
     <>
