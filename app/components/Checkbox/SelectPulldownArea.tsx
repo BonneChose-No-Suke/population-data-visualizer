@@ -19,41 +19,33 @@ export const SelectPulldownArea = (props: Props) => {
     return getAreaColor(area);
   };
 
-  const addPrefecture = (prefCode: number) => {
-    PrefCodeList.setPrefCodeList((prevList) => {
-      if (prevList.includes(prefCode)) {
-        return prevList.filter((codeInPrevCode) => codeInPrevCode !== prefCode);
+  const addPrefecture = (prefecture: Prefecture) => {
+    PrefCodeList.setPrefList((prevList) => {
+      if (prevList.includes(prefecture)) {
+        return prevList.filter((pref) => pref !== prefecture);
       } else {
-        return [...prevList, prefCode];
+        return [...prevList, prefecture];
       }
     });
   };
 
-  const removePrefecture = (prefCode: number) => {
-    PrefCodeList.setPrefCodeList((prevList) => {
-      return prevList.includes(prefCode)
-        ? prevList.filter((code) => code !== prefCode)
+  const removePrefecture = (prefecture: Prefecture) => {
+    PrefCodeList.setPrefList((prevList) => {
+      return prevList.includes(prefecture)
+        ? prevList.filter((pref) => pref !== prefecture)
         : prevList;
     });
   };
 
   return (
-    <div className='SelectPulldownArea'>
-      <SelectPulldown
-        prefectures={props.prefectures}
-        onSelectPrefecture={addPrefecture}
-      />
-      <div className='BatchArea'>
-        {PrefCodeList.prefCodeList.map((prefCode, i) => (
+    <div className="SelectPulldownArea">
+      <SelectPulldown prefectures={props.prefectures} onSelectPrefecture={addPrefecture} />
+      <div className="BatchArea">
+        {PrefCodeList.prefList.map((prefecture, i) => (
           <Batch
             key={i}
-            prefCode={prefCode}
-            prefName={
-              props.prefectures.filter(
-                (prefecture) => prefecture.prefCode === prefCode
-              )[0]!.prefName
-            }
-            colorCode={getColorCode(prefCode)}
+            prefecture={prefecture}
+            colorCode={getColorCode(prefecture.prefCode)}
             onRemovePrefecture={removePrefecture}
           />
         ))}

@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { PrefCodeContext } from './utils/context';
+import { ChartArea } from './components/ChartArea/ChartArea';
+import { Prefecture } from './utils/types';
 
 export const Chart = ({ children }: { children: React.ReactNode }) => {
   // contextを使ってprefCodeのリストを管理する
@@ -9,16 +11,16 @@ export const Chart = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <PrefCodeContext.Provider value={usePrefCodeList()}>
+      <PrefCodeContext.Provider value={usePrefList()}>
         {children}
-        <div>チャートエリア</div>
+        <ChartArea />
       </PrefCodeContext.Provider>
     </>
   );
 };
 
-const usePrefCodeList = () => {
-  const [prefCodeList, setPrefCodeList] = useState<number[]>([]);
+const usePrefList = () => {
+  const [prefList, setPrefList] = useState<Prefecture[]>([]);
 
-  return { prefCodeList, setPrefCodeList };
+  return { prefList, setPrefList };
 };
