@@ -1,5 +1,7 @@
 'use client';
-
+import { usePopulationData } from '@/app/hooks/usePopulationData';
+import { PrefectureContext } from '@/app/utils/context';
+import { useContext, useEffect, useState } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -29,6 +31,15 @@ ChartJS.register(
 
 export const ChartArea = () => {
   //TODO dataとlabelsを返す関数を作成する
+  const PrefList = useContext(PrefectureContext);
+  const [currentPrefList, setCurrentPrefList] = useState(PrefList.prefList);
+  const { updatePrefs, populationData } = usePopulationData(PrefList.prefList);
+
+  useEffect(() => {
+    updatePrefs(currentPrefList);
+    setCurrentPrefList(PrefList.prefList);
+  }, [PrefList.prefList]);
+
   const prefDataSets = mockData.map((mock) => {
     return {
       label: `${mock.prefCode}.${mock.prefName}`,

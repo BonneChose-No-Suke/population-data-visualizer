@@ -1,10 +1,9 @@
 import { Dispatch, SetStateAction, createContext } from 'react';
+import { Prefecture } from './types';
 
-export type PrefCodeContextType = {
-  prefCodeList: number[];
-  setPrefCodeList: Dispatch<SetStateAction<number[]>>;
+export type PrefContextType = {
+  prefList: Prefecture[];
+  setPrefList: Dispatch<SetStateAction<Prefecture[]>>;
 };
 
-export const PrefCodeContext = createContext<PrefCodeContextType>(
-  {} as PrefCodeContextType
-);
+export const PrefectureContext = createContext<PrefContextType>({} as PrefContextType);

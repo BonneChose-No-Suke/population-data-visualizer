@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext } from 'react';
-import { PrefCodeContext } from '@/app/utils/context';
+import { PrefectureContext } from '@/app/utils/context';
 import { Prefecture } from '@/app/utils/types';
 import { CheckboxItem } from './CheckboxItem';
 import '../../styles/components/Checkbox/CheckboxArea.css';
@@ -12,14 +12,14 @@ type Props = {
 
 export const CheckboxArea = (props: Props) => {
   const { prefectures } = props;
-  const PrefCodeList = useContext(PrefCodeContext);
+  const PrefList = useContext(PrefectureContext);
 
-  const prefectureSelected = (prefCode: number) => {
-    PrefCodeList.setPrefCodeList((prev) => {
-      if (prev.includes(prefCode)) {
-        return prev.filter((pref) => pref !== prefCode);
+  const prefectureSelected = (prefecture: Prefecture) => {
+    PrefList.setPrefList((prev) => {
+      if (prev.includes(prefecture)) {
+        return prev.filter((pref) => pref.prefCode !== prefecture.prefCode);
       } else {
-        return [...prev, prefCode];
+        return [...prev, prefecture];
       }
     });
   };
@@ -30,7 +30,7 @@ export const CheckboxArea = (props: Props) => {
         <CheckboxItem
           key={i}
           prefecture={prefecture}
-          selected={PrefCodeList.prefCodeList.includes(prefecture.prefCode)}
+          selected={PrefList.prefList.includes(prefecture)}
           onSelectPrefecture={prefectureSelected}
         />
       ))}
