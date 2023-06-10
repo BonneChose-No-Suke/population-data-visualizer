@@ -1,28 +1,36 @@
+'use client';
+
 import { Prefecture } from '@/app/utils/types';
 import { CheckboxArea } from './CheckboxArea';
 import { SelectPulldownArea } from './SelectPulldownArea';
+import { useContext } from 'react';
+import { PrefectureContext } from '@/app/utils/context';
 
-export const Checkbox = async () => {
-  const prefectures: Prefecture[] = await getPrefectures();
-  return (
-    <>
-      <CheckboxArea prefectures={prefectures} />
-      <SelectPulldownArea prefectures={prefectures} />
-    </>
-  );
+type Props = {
+  prefectures: Prefecture[];
 };
 
-const getPrefectures = async () => {
-  const response = await fetch('http://localhost:3000/api/prefectures', {
-    method: 'GET',
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      return data.data;
-    })
-    .catch((err) => {
-      return err;
-    });
+export const Checkbox = (props: Props) => {
+  const PrefList = useContext(PrefectureContext);
 
-  return response;
+  const updatePrefectures = (prefecture: Prefecture) => {
+    PrefList.prefList.includes(prefecture)
+      ? PrefList.removePref(prefecture)
+      : PrefList.addPref(prefecture);
+  };
+
+  return (
+    <>
+      <CheckboxArea
+        prefectures={props.prefectures}
+        prefList={PrefList.prefList}
+        onSelectPrefecture={updatePrefectures}
+      />
+      <SelectPulldownArea
+        prefectures={props.prefectures}
+        prefList={PrefList.prefList}
+        onSelectPrefecture={updatePrefectures}
+      />
+    </>
+  );
 };
