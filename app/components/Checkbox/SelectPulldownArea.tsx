@@ -13,14 +13,14 @@ type Props = {
 };
 
 export const SelectPulldownArea = (props: Props) => {
-  const PrefCodeList = useContext(PrefectureContext);
+  const PrefList = useContext(PrefectureContext);
   const getColorCode = (prefCode: number) => {
     const area = getAreaCode(prefCode) ?? AreaCode.Hokkaido;
     return getAreaColor(area);
   };
 
   const addPrefecture = (prefecture: Prefecture) => {
-    PrefCodeList.setPrefList((prevList) => {
+    PrefList.setPrefList((prevList) => {
       if (prevList.includes(prefecture)) {
         return prevList.filter((pref) => pref !== prefecture);
       } else {
@@ -30,7 +30,7 @@ export const SelectPulldownArea = (props: Props) => {
   };
 
   const removePrefecture = (prefecture: Prefecture) => {
-    PrefCodeList.setPrefList((prevList) => {
+    PrefList.setPrefList((prevList) => {
       return prevList.includes(prefecture)
         ? prevList.filter((pref) => pref !== prefecture)
         : prevList;
@@ -39,9 +39,13 @@ export const SelectPulldownArea = (props: Props) => {
 
   return (
     <div className="SelectPulldownArea">
-      <SelectPulldown prefectures={props.prefectures} onSelectPrefecture={addPrefecture} />
+      <SelectPulldown
+        prefectures={props.prefectures}
+        onSelectPrefecture={addPrefecture}
+        prefList={PrefList.prefList}
+      />
       <div className="BatchArea">
-        {PrefCodeList.prefList.map((prefecture, i) => (
+        {PrefList.prefList.map((prefecture, i) => (
           <Batch
             key={i}
             prefecture={prefecture}

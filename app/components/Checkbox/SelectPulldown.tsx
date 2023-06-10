@@ -1,18 +1,15 @@
 'use client';
 
-import { useContext } from 'react';
-import { PrefectureContext } from '@/app/utils/context';
 import { Prefecture } from '@/app/utils/types';
 import '../../styles/components/Checkbox/SelectPulldown.css';
 
 type Props = {
   prefectures: Prefecture[];
+  prefList: Prefecture[];
   onSelectPrefecture: (prefecture: Prefecture) => void;
 };
 
 export const SelectPulldown = (props: Props) => {
-  const PrefCodeList = useContext(PrefectureContext);
-
   return (
     <label className="SelectPulldown">
       <select
@@ -25,7 +22,7 @@ export const SelectPulldown = (props: Props) => {
           <option
             key={i}
             value={prefecture.prefCode}
-            disabled={PrefCodeList.prefList.includes(prefecture)}
+            disabled={props.prefList.includes(prefecture)}
           >
             {prefecture.prefName}
           </option>
