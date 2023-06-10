@@ -12,13 +12,18 @@ export const usePopulationData = (latestPrefList: Prefecture[]) => {
       const newPopulationData = await axios
         .get(`/api/populationComposition?prefCode=${addedPref[0].prefCode}`)
         .then((res) => {
-          const populationData = res.data as PopulationData[];
-          const newPrefData: PopulationComparison = {
-            prefCode: addedPref[0].prefCode,
-            prefName: addedPref[0].prefName,
-            populationData,
-          };
-          return newPrefData;
+          {
+            const populationData = res.data as PopulationData[];
+            const newPrefData: PopulationComparison = {
+              prefCode: addedPref[0].prefCode,
+              prefName: addedPref[0].prefName,
+              populationData,
+            };
+            return newPrefData;
+          }
+        })
+        .catch((err) => {
+          err instanceof Error && alert('Failed to fetch data');
         });
 
       newPopulationData?.populationData.length

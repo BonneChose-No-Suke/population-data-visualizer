@@ -14,5 +14,5 @@ export type PopulationData = {
   data: {
     year: number;
     value: number;
-  };
+  }[];
 };
