@@ -20,10 +20,11 @@ export const GET = async (req: Request) => {
       },
     })
     .then((res) => {
-      return res.data.result.data;
-    })
-    .catch((err) => {
-      return err;
+      if (res.data !== '400') {
+        return res.data.result.data;
+      } else {
+        throw new Error('Failed to fetch data');
+      }
     });
 
   return NextResponse.json(response);
