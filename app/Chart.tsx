@@ -1,23 +1,22 @@
 'use client';
 
-import { useState } from 'react';
 import { PrefectureContext } from './utils/context';
-import { ChartArea } from './components/ChartArea/ChartArea';
+import { usePrefList } from './hooks/usePrefList';
 import { Prefecture } from './utils/types';
+import { ChartArea } from './components/ChartArea/ChartArea';
+import { Checkbox } from './components/Checkbox/Checkbox';
 
-export const Chart = ({ children }: { children: React.ReactNode }) => {
+type Props = {
+  prefectures: Prefecture[];
+};
+
+export const Chart = (props: Props) => {
   return (
     <>
       <PrefectureContext.Provider value={usePrefList()}>
-        {children}
+        <Checkbox prefectures={props.prefectures} />
         <ChartArea />
       </PrefectureContext.Provider>
     </>
   );
-};
-
-const usePrefList = () => {
-  const [prefList, setPrefList] = useState<Prefecture[]>([]);
-
-  return { prefList, setPrefList };
 };

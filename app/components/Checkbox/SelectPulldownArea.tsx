@@ -2,51 +2,36 @@
 
 import { Prefecture } from '@/app/utils/types';
 import { SelectPulldown } from './SelectPulldown';
-import { PrefectureContext } from '@/app/utils/context';
-import { useContext } from 'react';
 import { Batch } from '../common/Batch';
 import '../../styles/components/Checkbox/SelectPulldownArea.css';
 import { AreaCode, getAreaCode } from '@/app/utils/helper/getAreaNumber';
 
 type Props = {
   prefectures: Prefecture[];
+  prefList: Prefecture[];
+  onSelectPrefecture: (prefecture: Prefecture) => void;
 };
 
 export const SelectPulldownArea = (props: Props) => {
-  const PrefCodeList = useContext(PrefectureContext);
   const getColorCode = (prefCode: number) => {
     const area = getAreaCode(prefCode) ?? AreaCode.Hokkaido;
     return getAreaColor(area);
   };
 
-  const addPrefecture = (prefecture: Prefecture) => {
-    PrefCodeList.setPrefList((prevList) => {
-      if (prevList.includes(prefecture)) {
-        return prevList.filter((pref) => pref !== prefecture);
-      } else {
-        return [...prevList, prefecture];
-      }
-    });
-  };
-
-  const removePrefecture = (prefecture: Prefecture) => {
-    PrefCodeList.setPrefList((prevList) => {
-      return prevList.includes(prefecture)
-        ? prevList.filter((pref) => pref !== prefecture)
-        : prevList;
-    });
-  };
-
   return (
     <div className="SelectPulldownArea">
-      <SelectPulldown prefectures={props.prefectures} onSelectPrefecture={addPrefecture} />
+      <SelectPulldown
+        prefectures={props.prefectures}
+        onSelectPrefecture={props.onSelectPrefecture}
+        prefList={props.prefList}
+      />
       <div className="BatchArea">
-        {PrefCodeList.prefList.map((prefecture, i) => (
+        {props.prefList.map((prefecture, i) => (
           <Batch
             key={i}
             prefecture={prefecture}
             colorCode={getColorCode(prefecture.prefCode)}
-            onRemovePrefecture={removePrefecture}
+            onRemovePrefecture={props.onSelectPrefecture}
           />
         ))}
       </div>
