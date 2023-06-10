@@ -16,5 +16,5 @@ export const usePrefList = () => {
     });
   };
 
-  return { prefList, addPref, removePref, setPrefList };
+  return { prefList, addPref, removePref };
 };
