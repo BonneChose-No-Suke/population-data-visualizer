@@ -1,7 +1,7 @@
 'use client';
 
 import { Prefecture } from '@/app/utils/types';
-import '../../styles/components/Checkbox/SelectPulldown.css';
+import '../../styles/components/Checkbox/SelectDropdown.css';
 
 type Props = {
   prefectures: Prefecture[];
@@ -9,9 +9,9 @@ type Props = {
   onSelectPrefecture: (prefecture: Prefecture) => void;
 };
 
-export const SelectPulldown = (props: Props) => {
+export const SelectDropdown = (props: Props) => {
   return (
-    <label className="SelectPulldown">
+    <label className="SelectDropdown">
       <select
         onChange={(e) => {
           props.onSelectPrefecture(props.prefectures[e.target.selectedIndex - 1]);

@@ -1,18 +1,18 @@
-.SelectPulldown {
+.SelectDropdown {
   width: fit-content;
   display: block;
   margin: 0 auto;
   position: relative;
 }
 
-.SelectPulldown::before,
-.SelectPulldown::after {
+.SelectDropdown::before,
+.SelectDropdown::after {
   position: absolute;
   content: '';
   pointer-events: none;
 }
 
-.SelectPulldown::before {
+.SelectDropdown::before {
   right: 0;
   display: inline-block;
   width: 2.8em;
@@ -22,7 +22,7 @@
   content: '';
 }
 
-.SelectPulldown::after {
+.SelectDropdown::after {
   position: absolute;
   top: 50%;
   right: 1.4em;
@@ -34,7 +34,7 @@
   content: '';
 }
 
-.SelectPulldown select {
+.SelectDropdown select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -48,6 +48,6 @@
   cursor: pointer;
 }
 
-.SelectPulldown select:focus {
+.SelectDropdown select:focus {
   outline: 1px solid #2589d0;
 }
