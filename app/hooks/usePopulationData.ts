@@ -1,9 +1,25 @@
-import { useState } from 'react';
-import { PopulationComparison, PopulationData, Prefecture } from '../utils/types';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { getIndex } from '../utils/helper/getIndex';
+import { DataType, PopulationComparison, PopulationData, Prefecture } from '../utils/types';
 
 export const usePopulationData = (latestPrefList: Prefecture[]) => {
   const [populationData, setPopulationData] = useState<PopulationComparison[]>([]);
+  const [targetDataIndex, setTargetDataIndex] = useState<number>(0);
+  const [targetDatasets, setTargetDatasets] = useState<PopulationComparison[]>([]);
+
+  useEffect(() => {
+    if (populationData.length === 0) return;
+    setTargetDatasets(
+      populationData.map((populationComp) => {
+        return {
+          prefCode: populationComp.prefCode,
+          prefName: populationComp.prefName,
+          populationData: [populationComp.populationData[targetDataIndex]],
+        };
+      }),
+    );
+  }, [populationData, targetDataIndex]);
 
   const updatePrefs = async (newPrefList: Prefecture[]) => {
     if (newPrefList.length < latestPrefList.length) {
@@ -40,8 +56,11 @@ export const usePopulationData = (latestPrefList: Prefecture[]) => {
     }
   };
 
-  // データの追加・削除を行った後、描画用のデータを返す
-  // 描画用データを変更する
+  const updateTargetDataIndex = (dataType: DataType) => {
+    const index = getIndex(dataType);
 
-  return { updatePrefs, populationData };
+    setTargetDataIndex(index);
+  };
+
+  return { targetDatasets, updatePrefs, updateTargetDataIndex };
 };
