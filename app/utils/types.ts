@@ -10,9 +10,16 @@ export type PopulationComparison = {
 };
 
 export type PopulationData = {
-  label: string;
+  label: DataType;
   data: {
     year: number;
     value: number;
   }[];
 };
+
+export enum DataType {
+  TotalPopulation = '総人口',
+  YoungPopulation = '年少人口',
+  WorkingAgePopulation = '生産年齢人口',
+  ElderlyPopulation = '老年人口',
+}
