@@ -1,3 +1,29 @@
 .main {
   background-color: #fff;
 }
+
+.pageTitle {
+  font-size: 1.25rem;
+  padding: 30px 0;
+}
+
+.pageDescription {
+  display: block;
+  width: 90%;
+  margin: 0 auto 16px;
+  font-size: 0.925rem;
+}
+
+@media screen and (min-width: 964px) {
+  .pageTitle {
+    font-size: 2rem;
+    padding: 44px 0;
+  }
+
+  .pageDescription {
+    display: block;
+    width: 75%;
+    margin: 0 auto 24px;
+    font-size: 1.25rem;
+  }
+}
