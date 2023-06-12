@@ -1,7 +1,6 @@
 'use client';
 
 import { Prefecture } from '@/app/utils/types';
-import '../../styles/components/Checkbox/SelectDropdown.css';
 
 type Props = {
   prefectures: Prefecture[];

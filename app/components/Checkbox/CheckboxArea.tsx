@@ -2,7 +2,6 @@
 
 import { Prefecture } from '@/app/utils/types';
 import { CheckboxItem } from './CheckboxItem';
-import '../../styles/components/Checkbox/CheckboxArea.css';
 
 type Props = {
   prefectures: Prefecture[];

@@ -17,7 +17,6 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { DataTypeSelector } from './DataTypeSelector';
-import '../../styles/components/ChartArea/ChartArea.css';
 
 ChartJS.register(
   CategoryScale,

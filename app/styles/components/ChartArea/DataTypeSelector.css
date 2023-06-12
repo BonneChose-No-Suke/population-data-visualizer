@@ -1,9 +1,0 @@
-.DataTypeSelector {
-  display: flex;
-  justify-content: center;
-}
-
-.DataTypeSelector label {
-  display: flex;
-  margin: 0 0.5rem;
-}
