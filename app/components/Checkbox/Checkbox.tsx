@@ -2,7 +2,7 @@
 
 import { Prefecture } from '@/app/utils/types';
 import { CheckboxArea } from './CheckboxArea';
-import { SelectPulldownArea } from './SelectPulldownArea';
+import { SelectDropdownArea } from './SelectDropdownArea';
 import { useContext } from 'react';
 import { PrefectureContext } from '@/app/utils/context';
 
@@ -26,7 +26,7 @@ export const Checkbox = (props: Props) => {
         prefList={PrefList.prefList}
         onSelectPrefecture={updatePrefectures}
       />
-      <SelectPulldownArea
+      <SelectDropdownArea
         prefectures={props.prefectures}
         prefList={PrefList.prefList}
         onSelectPrefecture={updatePrefectures}

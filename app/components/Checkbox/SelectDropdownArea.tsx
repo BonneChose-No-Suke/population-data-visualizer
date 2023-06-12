@@ -1,9 +1,9 @@
 'use client';
 
 import { Prefecture } from '@/app/utils/types';
-import { SelectPulldown } from './SelectPulldown';
+import { SelectDropdown } from './SelectDropdown';
 import { Batch } from '../common/Batch';
-import '../../styles/components/Checkbox/SelectPulldownArea.css';
+import '../../styles/components/Checkbox/SelectDropdownArea.css';
 import { AreaCode, getAreaCode } from '@/app/utils/helper/getAreaNumber';
 
 type Props = {
@@ -12,15 +12,15 @@ type Props = {
   onSelectPrefecture: (prefecture: Prefecture) => void;
 };
 
-export const SelectPulldownArea = (props: Props) => {
+export const SelectDropdownArea = (props: Props) => {
   const getColorCode = (prefCode: number) => {
     const area = getAreaCode(prefCode) ?? AreaCode.Hokkaido;
     return getAreaColor(area);
   };
 
   return (
-    <div className="SelectPulldownArea">
-      <SelectPulldown
+    <div className="SelectDropdownArea">
+      <SelectDropdown
         prefectures={props.prefectures}
         onSelectPrefecture={props.onSelectPrefecture}
         prefList={props.prefList}

@@ -1,6 +1,7 @@
 'use client';
 
 import { usePopulationData } from '@/app/hooks/usePopulationData';
+import { DataType } from '@/app/utils/types';
 import { PrefectureContext } from '@/app/utils/context';
 import { useContext, useEffect, useState } from 'react';
 import {
