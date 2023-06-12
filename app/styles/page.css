@@ -14,6 +14,151 @@
   font-size: 0.925rem;
 }
 
+/* 共通Component指定 Batchのstyle  */
+
+.Batch {
+  padding: 10px 12.5px;
+  align-items: center;
+  gap: 12.5px;
+  font-size: 10px;
+  display: inline-flex;
+  flex-shrink: 0;
+  border-radius: 9999px;
+}
+
+.Batch_text {
+  margin: 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+.Batch_button {
+  position: relative;
+  border: 1px solid #fff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.Batch_icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* checkbox関連componentのstyle */
+/* checkbox */
+.checkboxArea {
+  display: none;
+}
+
+.checkboxItem {
+  display: flex;
+  align-items: center;
+  padding: 20px 5px;
+  gap: 0 10px;
+  width: calc(25% - 10px);
+}
+
+.checkboxItem input {
+  width: 20px;
+  height: 20px;
+}
+
+.checkboxItem p {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+/* selectDropdown */
+.BatchArea {
+  width: 90%;
+  display: flex;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  gap: 7.5px;
+  margin: 20px auto 0;
+  padding: 0 0 44px;
+}
+
+.SelectDropdown {
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
+
+.SelectDropdown::before,
+.SelectDropdown::after {
+  position: absolute;
+  content: '';
+  pointer-events: none;
+}
+
+.SelectDropdown::before {
+  right: 0;
+  display: inline-block;
+  width: 2.8em;
+  height: 2.8em;
+  border-radius: 0 25px 25px 0;
+  background-color: #2589d0;
+  content: '';
+}
+
+.SelectDropdown::after {
+  position: absolute;
+  top: 50%;
+  right: 1.4em;
+  transform: translate(50%, -50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  border-bottom: 3px solid #fff;
+  border-right: 3px solid #fff;
+  content: '';
+}
+
+.SelectDropdown select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  min-width: 230px;
+  height: 2.8em;
+  padding: 0.4em 3.6em 0.4em 0.8em;
+  border: 2px solid #2589d0;
+  border-radius: 25px;
+  color: #333333;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.SelectDropdown select:focus {
+  outline: 1px solid #2589d0;
+}
+
+/* chartArea関連のstyle */
+.ChartArea {
+  width: 95%;
+  margin: 20px auto;
+}
+
+.DataTypeSelector {
+  display: flex;
+  justify-content: center;
+}
+
+.DataTypeSelector label {
+  display: flex;
+  margin: 0 0.5rem;
+}
+
+@media screen and (min-width: 614px) {
+  .ChartArea {
+    width: 80%;
+  }
+}
+
 @media screen and (min-width: 964px) {
   .pageTitle {
     font-size: 2rem;
@@ -25,5 +170,30 @@
     width: 75%;
     margin: 0 auto 24px;
     font-size: 1.25rem;
+  }
+
+  /* checkbox関連style */
+  /* checkbox */
+  .checkboxArea {
+    width: 85%;
+    padding: 30px 20px;
+    margin: 30px auto 0;
+    height: 250px;
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+  /* selectDropdown */
+  .SelectDropdownArea {
+    display: none;
+  }
+
+  /* chartArea関連のstyle */
+  .ChartArea {
+    width: 80%;
+    margin: 24px auto 0;
   }
 }

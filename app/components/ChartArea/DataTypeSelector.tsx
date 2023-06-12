@@ -1,7 +1,6 @@
 'use client';
 
 import { DataType } from '@/app/utils/types';
-import '../../styles/components/ChartArea/DataTypeSelector.css';
 
 type Props = {
   dataType: DataType;

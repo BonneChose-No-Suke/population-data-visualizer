@@ -1,10 +1,9 @@
 'use client';
 
+import { AreaCode, getAreaCode } from '@/app/utils/helper/getAreaNumber';
 import { Prefecture } from '@/app/utils/types';
 import { SelectDropdown } from './SelectDropdown';
 import { Batch } from '../common/Batch';
-import '../../styles/components/Checkbox/SelectDropdownArea.css';
-import { AreaCode, getAreaCode } from '@/app/utils/helper/getAreaNumber';
 
 type Props = {
   prefectures: Prefecture[];

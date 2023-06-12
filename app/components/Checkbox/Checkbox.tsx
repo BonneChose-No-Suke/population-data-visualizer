@@ -1,10 +1,10 @@
 'use client';
 
-import { Prefecture } from '@/app/utils/types';
-import { CheckboxArea } from './CheckboxArea';
-import { SelectDropdownArea } from './SelectDropdownArea';
 import { useContext } from 'react';
 import { PrefectureContext } from '@/app/utils/context';
+import { Prefecture } from '@/app/utils/types';
+import { SelectDropdownArea } from './SelectDropdownArea';
+import { CheckboxArea } from './CheckboxArea';
 
 type Props = {
   prefectures: Prefecture[];
