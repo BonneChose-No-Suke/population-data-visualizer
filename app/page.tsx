@@ -14,7 +14,8 @@ const Home = () => {
         <br />
         「総人口」、「年少人口」、「生産年齢人口」、「老年人口」の4種類のデータを表示できます。
       </p>
-      {/* <ChartServer /> */}
+      {/* @ts-expect-error Server Component */}
+      <ChartServer />
     </main>
   );
 };

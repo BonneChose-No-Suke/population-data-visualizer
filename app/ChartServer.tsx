@@ -6,8 +6,12 @@ export const ChartServer = async () => {
 };
 
 const getPrefectures = async () => {
-  const response = await fetch('http://localhost:3000/api/prefectures', {
+  const API_KEY = process.env.RESAS_API_KEY || '';
+  const response = await fetch('https://opendata.resas-portal.go.jp/api/v1/prefectures', {
     method: 'GET',
+    headers: {
+      'X-API-KEY': API_KEY,
+    },
   })
     .then((res) => res.json())
     .then((data) => {
