@@ -19,6 +19,8 @@ export const Checkbox = (props: Props) => {
       : PrefList.addPref(prefecture);
   };
 
+  if (props.prefectures.length === 0) return <></>;
+
   return (
     <>
       <CheckboxArea
