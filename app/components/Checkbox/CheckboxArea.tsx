@@ -10,11 +10,9 @@ type Props = {
 };
 
 export const CheckboxArea = (props: Props) => {
-  const { prefectures } = props;
-
   return (
     <div className="checkboxArea">
-      {prefectures.map((prefecture, i) => (
+      {props.prefectures.map((prefecture, i) => (
         <CheckboxItem
           key={i}
           prefecture={prefecture}
