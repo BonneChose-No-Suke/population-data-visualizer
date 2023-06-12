@@ -1,7 +1,7 @@
 import { ChartServer } from './ChartServer';
 import './styles/page.css';
 
-const Home = async () => {
+const Home = () => {
   return (
     <main className="main">
       <h1 className="pageTitle" style={{ textAlign: 'center' }}>
