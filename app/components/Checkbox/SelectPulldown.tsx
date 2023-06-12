@@ -3,7 +3,6 @@
 import { useContext } from 'react';
 import { PrefCodeContext } from '@/app/utils/context';
 import { Prefecture } from '@/app/utils/types';
-import '../../styles/components/Checkbox/SelectPulldown.css';
 
 type Props = {
   prefectures: Prefecture[];

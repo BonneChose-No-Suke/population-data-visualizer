@@ -1,7 +1,6 @@
 'use client';
 
 import { IoClose } from 'react-icons/io5';
-import '../../styles/components/common/Batch.css';
 
 type Props = {
   prefName: string;

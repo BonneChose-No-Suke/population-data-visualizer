@@ -5,7 +5,6 @@ import { SelectPulldown } from './SelectPulldown';
 import { PrefCodeContext } from '@/app/utils/context';
 import { useContext } from 'react';
 import { Batch } from '../common/Batch';
-import '../../styles/components/Checkbox/SelectPulldownArea.css';
 import { AreaCode, getAreaCode } from '@/app/utils/helper/getAreaNumber';
 
 type Props = {
