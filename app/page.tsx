@@ -1,6 +1,8 @@
 import { ChartServer } from './ChartServer';
 import './styles/page.css';
 
+// {/* @ts-expect-error Server Component */} async component
+
 const Home = () => {
   return (
     <main className="main">
@@ -12,8 +14,7 @@ const Home = () => {
         <br />
         「総人口」、「年少人口」、「生産年齢人口」、「老年人口」の4種類のデータを表示できます。
       </p>
-      {/* @ts-expect-error Server Component */}
-      <ChartServer />
+      {/* <ChartServer /> */}
     </main>
   );
 };
