@@ -7,6 +7,8 @@
 ```bash
 git clone https://github.com/BonneChose-No-Suke/population-data-visualizer
 
+cd population-data-visualizer
+
 yarn install
 
 yarn dev
