@@ -1,4 +1,4 @@
-name: Run Build and jest Test cases
+name: Run jest Test cases
 on:
   # Runs on pushes targeting the default branch
   push:
@@ -18,5 +18,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn install
-      - run: yarn build
       - run: yarn test
