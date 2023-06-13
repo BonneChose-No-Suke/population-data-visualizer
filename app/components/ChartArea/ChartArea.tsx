@@ -39,6 +39,7 @@ export const ChartArea = () => {
   useEffect(() => {
     updatePrefs(currentPrefList);
     setCurrentPrefList(PrefList.prefList);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [PrefList.prefList]);
 
   const prefDataSets = targetDatasets.map((data) => {
